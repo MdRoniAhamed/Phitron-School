@@ -1,0 +1,24 @@
+UNIQUE Student total Marks show:
+Roni 8990 267
+Ove 8989 90
+Saddam 8988 90
+Fariya 8991 90
+Emran 8992 90
+UNIQUE Student total Marks show:
+Roni 8990 267
+Ove 8989 90
+Saddam 8988 90
+Fariya 8991 90
+Emran 8992 90
+UNIQUE Student total Marks show:
+Ove 8989 90
+Saddam 8988 90
+Fariya 8991 90
+Emran 8992 90
+Roni 8990 267
+UNIQUE Student total Marks show:
+Roni 8990 267
+Ove 8989 90
+Saddam 8988 90
+Fariya 8991 90
+Emran 8992 90

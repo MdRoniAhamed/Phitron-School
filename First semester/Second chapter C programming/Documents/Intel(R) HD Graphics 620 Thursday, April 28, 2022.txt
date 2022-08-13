@@ -1,0 +1,78 @@
+Intel(R) HD Graphics 620
+
+
+
+
+Report Date: Thursday, April 28, 2022
+Report Time [hh:mm:ss]: 2:01:27 PM
+Driver Version: 21.20.16.4574
+Operating System: Windows* 10 Pro (10.0.19041)
+Physical Memory: 3962 MB
+Vendor ID: 8086
+Device ID: 5916
+Device Revision: 02
+Graphics Output Protocol (GOP) Version: 9.0.1061
+Current Resolution: 1366 x 768
+
+
+
+
+Processor: Intel(R) Core(TM) i3-7100U CPU @ 2.40GHz
+Processor Speed: 2400 MHz
+Processor Graphics in Use: Intel(R) HD Graphics 620
+Shader Version: 5.1
+OpenGL* Version: 4.4
+OpenCL* Version: 2.1
+
+
+* Microsoft DirectX* *
+Runtime Version: 12.0
+Hardware-Supported Version: 12.0
+
+
+
+
+* Devices connected to the Graphics Accelerator *
+
+
+Active Displays: 1
+
+
+
+
+* Built-in Display *
+
+
+Display Type: Digital
+DDC2 Protocol: Supported
+Gamma: 2.2
+Connector Type: Embedded DisplayPort
+Device Type: Built-in Display
+
+
+Maximum Image Size
+Horizontal Size: 13.39 inches
+Vertical Size: 7.48 inches
+
+
+Supported Modes
+1366 x 768 (60p Hz)
+1366 x 768 (48p Hz)
+
+
+
+
+
+Raw EDID:
+00 FF FF FF FF FF FF 00 0D AE C5 15 00 00 00 00 
+03 18 01 04 95 22 13 78 02 C3 C5 91 55 54 94 28 
+24 50 54 00 00 00 01 01 01 01 01 01 01 01 01 01 
+01 01 01 01 01 01 DA 1D 56 E2 50 00 20 30 44 2D 
+47 00 58 C1 10 00 00 1A 9D 17 56 CE 50 00 21 30 
+3F 29 46 00 58 C1 10 00 00 1A 00 00 00 FE 00 46 
+34 58 36 59 80 31 35 36 42 47 45 0A 00 00 00 00 
+00 00 41 31 96 00 10 00 00 09 01 0A 20 20 00 C4 
+
+
+
+* Other names and brands are the property of their respective owners.

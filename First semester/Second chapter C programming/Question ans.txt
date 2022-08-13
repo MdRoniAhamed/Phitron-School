@@ -1,0 +1,19 @@
+Question no 8 :
+What is a null string in C? How to declare it?   
+
+Answer:
+
+null string হলো একটি শূন্য অক্ষর '\০' যা মূলত string কে সমাপ্ত করে । 
+string এর যে খানে null '\0' থাকবে string সেখানেই সমাপ্ত করবে।
+আমরা এভাবে null string গঠন করতে পারি । 
+char roni[5]="hello";
+বা ,এভাবে null string গঠণ করতে পারি।
+char roni[]={'h','e','l','l','o','\0'};
+এখানে "hello" শব্দটি প্রিন্ট হওয়ার পর যখনই null '\0' তে
+আসবে তখনই এটি string প্রিন্ট‌ দেওয়া বন্ধ করে দেবে।
+তার মানে এখানে শুধু "hello" প্রিন্ট হবে ।
+আমার আমরা যদি null string কে "hello" শব্দের মাঝে রাখি, 
+char roni[]={'h','e','l','\0','l','o'};
+তাহলে "hel" পর্যন্ত যাওয়ার পর string  আর প্রিন্ট করবে না ।
+।কারণ string যেখানেই null string পাবে সেখানেই string 
+সমাপ্ত করে দেয় ।মানে প্রিন্ট করা বন্ধ করে দেয়। 

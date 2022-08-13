@@ -1,0 +1,23 @@
+Example of a frequency array to count integer value:
+
+
+Structure is a user-defined datatype in C language which 
+allows us to combine data of different types together.
+Structure helps to construct a complex data type which is more meaningful.
+A structure is a key word that create user defined data type in C/C++.
+A structure creates a data type that can be used to group items of 
+possibly different types into a single type. 
+
+
+C programming এ  Structure হচ্ছে  user-defined datatype.
+structure এ অনেক গুলো ডেটা টাইপ রাখা যায়।মানে একটি structure এ char,int ,float ইত্যাদি সব গুলো 
+একটি variable এ রাখা যাবে।
+যেমনঃ
+struct student
+{ 
+  char name;
+  int roll;
+  float marks;
+};
+
+এখানে সব গুলো data type একটি variable এ রাখতে পারি student এ।
