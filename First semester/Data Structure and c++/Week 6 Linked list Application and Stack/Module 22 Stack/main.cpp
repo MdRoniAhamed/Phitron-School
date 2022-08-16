@@ -1,7 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 #include"MYSTACK.h"
+/*
+stack of float, double, char ,
+string, array, structure, objects of class.
 
+
+*/
 int main()
 {
     Stack st;

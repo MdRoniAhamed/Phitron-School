@@ -67,7 +67,7 @@ public:
         {
             top = delNode->prev;
             top->next = NULL;
-        }
+        };
         chk = delNode->value;
         delete delNode;
         count--;
