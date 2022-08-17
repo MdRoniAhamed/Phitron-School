@@ -96,7 +96,7 @@ int main()
     }
     head = Reverse_Palindrome(head);
     Palindrome_check(head,Tail);
-    Display(head);
-    Display(Tail);
+//    Display(head);
+//    Display(Tail);
 
 }
