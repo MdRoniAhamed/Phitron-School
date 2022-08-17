@@ -86,8 +86,8 @@ int main()
     st2.Push(7.25);
     st2.pop();
 //
-//    if(st.empty()==true) cout<<"Empty stack"<<endl;
-//    else cout<<"NOT Empty"<<endl;
+    if(st2.empty()==true) cout<<"Empty stack"<<endl;
+    else cout<<"NOT Empty"<<endl;
     cout<<st->Top()<<endl;
     cout<<st2.Top()<<endl;
 

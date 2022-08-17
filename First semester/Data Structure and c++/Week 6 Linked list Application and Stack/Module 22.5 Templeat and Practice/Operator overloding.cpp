@@ -10,7 +10,7 @@ public:
     }
     int operator *(Roni R)
     {
-        return R.x;
+        return x * R.x;
     }
 };
 int main()
