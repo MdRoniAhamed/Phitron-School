@@ -2,22 +2,21 @@
 using namespace std;
 #include"MYSTACK.h"
 
-int prefix_Evaluation(string check)
+int Prefix_Evaluation(string s)
 {
     Stack<int> st;
-    for(int i = check.size()-1; i>=0; i--)
+
+    for(int i=s.size()-1; i>=0; i--)
     {
-        /// Check[i] 0 to 9 ==> Operand
-        if(check[i] >= '0' && check[i] <= '9')
+        if(s[i] >= '0' && s[i] <= '9')
         {
-            st.Push(check[i]-'0');
+            st.Push(s[i]-'0');
         }
-        else ///Check [i] ==> Operator
-        {
+        else if(!st.empty()){
             int a = st.POP();
             int b = st.POP();
 
-            switch (check[i])
+            switch(s[i])
             {
             case '-':
                 st.Push(a-b);
@@ -25,11 +24,11 @@ int prefix_Evaluation(string check)
             case '+':
                 st.Push(a+b);
                 break;
-            case '*':
-                st.Push(a*b);
-                break;
             case '/':
                 st.Push(a/b);
+                break;
+            case '*':
+                st.Push(a*b);
                 break;
             case '^':
                 st.Push(pow(a,b));
@@ -37,23 +36,16 @@ int prefix_Evaluation(string check)
             default:
                 break;
             }
-
         }
     }
 
     return st.Top();
 }
-
-/*
-+*432
--+7*45+20
-*/
 int main()
 {
     string s;
     cin>>s;
-
-    cout<<endl<<prefix_Evaluation(s)<<endl<<endl;
-//    cout<<endl<<prefix_Evaluation("-+7*45+20")<<endl<<endl;
+    int Prefix_sum = Prefix_Evaluation(s);
+    cout<<Prefix_sum<<endl;
 
 }
