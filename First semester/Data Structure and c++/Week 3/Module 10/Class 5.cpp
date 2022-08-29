@@ -6,6 +6,7 @@ int binarySearch(int array[], int x, int lb, int ub)
     if(lb<=ub)
     {
         int mid= (lb+ub)/2;
+         cout<<"mid-> "<<mid<<" lf-> "<<lb<<" ri-> "<<ub<<endl;
         if(x==array[mid]) return mid;
         else if(x>array[mid]) binarySearch(array,x,mid+1,ub);
         else binarySearch(array,x,lb,mid-1);

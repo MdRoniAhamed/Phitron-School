@@ -34,7 +34,6 @@ void create_manue(Restaurant * restaurant,int n)
 int main()
 {
     Restaurant * restaurant = new Restaurant;
-    bool found = true;
 
     int n;
     cin>>n;
@@ -60,17 +59,25 @@ int main()
         {
             cout<<"Enter Item " <<i+1<<" Code : ";
             cin>>codes[i];
-            for(int j=0;j<n;j++)
+             bool found = true;
+            for(int j=0; j<n; j++)
             {
                 if(codes[i]==restaurant->food_item_codes[j])
                 {
                     found = false;
                 }
             }
-            if(found)
+            while(found)
             {
                 cout<<"Code is not valid. He/She needs to enter the code again : ";
                 cin>>codes[i];
+                for(int j=0; j<n; j++)
+                {
+                    if(codes[i]==restaurant->food_item_codes[j])
+                    {
+                        found = false;
+                    }
+                }
             }
             cout<<"Enter Item " <<i+1<<" Quantity : ";
             cin>>quantity[i];
