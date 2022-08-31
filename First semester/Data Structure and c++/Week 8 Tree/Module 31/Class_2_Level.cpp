@@ -1,3 +1,4 @@
+//Class 2 module 31.
 #include <bits/stdc++.h>
 using namespace std;
 // 12: 0 minutes .
@@ -19,6 +20,7 @@ void spacePrint(int level);
 void inOrder(treeNode *root, string &chk);
 void preOrder(treeNode *root, string &chk);
 void postOrder(treeNode *root, string &chk);
+void Level_Order_Traversel(treeNode *root, string &chk);
 
 void inOrder(treeNode *root, string &chk) // Left Root Right.
 {
@@ -89,6 +91,58 @@ void spacePrint(int level)
     }
 }
 
+// Module 31 => Class 2 Coded . 
+int Level_Order_Traversel(treeNode *root, string &chk, int n)
+{
+    if (root == NULL)
+    {
+        return -1;
+    }
+    int level = 0;
+    queue<treeNode *> q;
+    q.push(root);
+    q.push(NULL);
+
+    int max = INT_MIN;
+
+    while (!q.empty())
+    {
+        treeNode *chkNode = q.front();
+        q.pop();
+        if (chkNode != NULL)
+        {
+            if (level == n)
+            {
+                if (max < chkNode->data)
+                {
+                    max = chkNode->data;
+                }
+            }
+
+            cout << chkNode->data << " ";
+            chk += to_string(chkNode->data);
+            if (chkNode->leftChild != NULL)
+            {
+                q.push(chkNode->leftChild);
+            }
+            if (chkNode->rightChild != NULL)
+            {
+                q.push(chkNode->rightChild);
+            }
+        }
+        else
+        {
+            if (!q.empty())
+            {
+                q.push(NULL);
+                level++;
+            }
+        }
+    }
+
+    return max;
+}
+
 int main()
 {
     int n;
@@ -107,7 +161,7 @@ int main()
         allNodes[i]->data = value;
         if (left > n - 1 || right > n - 1)
         {
-            cout << "Invalide index." << endl;
+            cout << "Invalid index." << endl;
             break;
         }
         if (left != -1)
@@ -121,18 +175,28 @@ int main()
         }
     }
 
-    printTree(allNodes[0], 0);
+    // printTree(allNodes[0], 0);
 
     string inordertraversal = "";
     string preordertraversal = "";
     string postordertraversal = "";
-    inOrder(allNodes[0], inordertraversal);
-    preOrder(allNodes[0], preordertraversal);
-    postOrder(allNodes[0], postordertraversal);
+    string level_Order_Traversel = "";
+    // inOrder(allNodes[0], inordertraversal);
+    // preOrder(allNodes[0], preordertraversal);
+    // postOrder(allNodes[0], postordertraversal);
+    cout << endl
+         << endl;
 
-    cout << "Inorder Traversal: " << inordertraversal << endl;
-    cout << "Preorder Traversal: " << preordertraversal << endl;
-    cout << "Postorder Traversal: " << postordertraversal << endl;
+         //Class 2 Module 31 
+    int max_Value_add_K = Level_Order_Traversel(allNodes[0], level_Order_Traversel, 2);
+    cout << endl
+         << max_Value_add_K << endl;
+
+    cout << endl
+         << endl;
+    // cout << "Inorder Traversal: " << inordertraversal << endl;
+    // cout << "Preorder Traversal: " << preordertraversal << endl;
+    // cout << "Postorder Traversal: " << postordertraversal << endl;
 
     return 0;
 }
