@@ -181,22 +181,22 @@ int main()
     string preordertraversal = "";
     string postordertraversal = "";
     string level_Order_Traversel = "";
-    // inOrder(allNodes[0], inordertraversal);
-    // preOrder(allNodes[0], preordertraversal);
-    // postOrder(allNodes[0], postordertraversal);
+    inOrder(allNodes[0], inordertraversal);
+    preOrder(allNodes[0], preordertraversal);
+    postOrder(allNodes[0], postordertraversal);
+    cout << endl;
+    //      << endl;
+
+    //      //Class 2 Module 31 
+    // int max_Value_add_K = Level_Order_Traversel(allNodes[0], level_Order_Traversel, 2);
+    // cout << endl
+    //      << max_Value_add_K << endl;
+
     cout << endl
          << endl;
-
-         //Class 2 Module 31 
-    int max_Value_add_K = Level_Order_Traversel(allNodes[0], level_Order_Traversel, 2);
-    cout << endl
-         << max_Value_add_K << endl;
-
-    cout << endl
-         << endl;
-    // cout << "Inorder Traversal: " << inordertraversal << endl;
-    // cout << "Preorder Traversal: " << preordertraversal << endl;
-    // cout << "Postorder Traversal: " << postordertraversal << endl;
+    cout << "Inorder Traversal: " << inordertraversal << endl;
+    cout << "Preorder Traversal: " << preordertraversal << endl;
+    cout << "Postorder Traversal: " << postordertraversal << endl;
 
     return 0;
 }

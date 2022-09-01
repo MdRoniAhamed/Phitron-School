@@ -1,7 +1,7 @@
+//31-3 Construct a Binary Tree using Preorder and Inorder Traversal
 //Class 3 module 31.
 #include <bits/stdc++.h>
 using namespace std;
-// 12: 0 minutes .
 class treeNode
 {
 public:
@@ -18,9 +18,10 @@ public:
 void printTree(treeNode *root, int level);
 void spacePrint(int level);
 void inOrder(treeNode *root, string &chk);
-void preOrder(treeNode *root, string &chk);
+void preOrder_Traversel(treeNode *root, string &chk);
 void postOrder(treeNode *root, string &chk);
 void Level_Order_Traversel(treeNode *root, string &chk);
+treeNode * Build_Tree_Pre_In(int Pre_Order[],int In_Order[],int star,int end);
 
 void inOrder(treeNode *root, string &chk) // Left Root Right.
 {
@@ -31,13 +32,13 @@ void inOrder(treeNode *root, string &chk) // Left Root Right.
     inOrder(root->rightChild, chk);
 }
 
-void preOrder(treeNode *root, string &chk) // Root left Right
+void preOrder_Traversel(treeNode *root, string &chk) // Root left Right
 {
     if (root == NULL)
         return;
     chk += to_string(root->data);
-    preOrder(root->leftChild, chk);
-    preOrder(root->rightChild, chk);
+    preOrder_Traversel(root->leftChild, chk);
+    preOrder_Traversel(root->rightChild, chk);
 }
 
 void postOrder(treeNode *root, string &chk) // Left Right Root
@@ -143,14 +144,71 @@ int Level_Order_Traversel(treeNode *root, string &chk, int n)
     return max;
 }
 
+int Search_In_Order(int In_Order[],int current, int start,int end)
+{
+    for(int i=start; i<=end; i++)
+    {
+        if(In_Order[i]==current)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+//Class 3 Module 31. 35 minutes.
+//31-3 Construct a Binary Tree using Preorder and Inorder Traversal. 28 minutes. 
+treeNode * Build_Tree_Pre_In(int Pre_Order[],int In_Order[],int start,int end)
+{
+    static int id =0;
+    int current = Pre_Order[id];
+    id++;
+    treeNode * newNode = new treeNode(current);
+    if(start==end)
+    {
+        return newNode;
+    }
+
+    int pos = Search_In_Order(In_Order,current,start,end);
+
+    newNode->leftChild = Build_Tree_Pre_In(Pre_Order,In_Order,start,pos-1);
+
+    newNode->rightChild = Build_Tree_Pre_In(Pre_Order,In_Order,pos+1,end);
+
+    return newNode;
+    
+}
+
 int main()
 {
     int n;
     cin >> n;
+    int Pre_Order[n];
+    int In_Order[n];
+    for(int i=0; i<n; i++)
+    {
+        cin>>Pre_Order[i];
+    }
+    for(int i=0; i<n; i++)
+    {
+        cin>>In_Order[i];
+    }
+
+    treeNode * root = Build_Tree_Pre_In(Pre_Order,In_Order,0,n-1);
+    string chkPre = "";
+    preOrder_Traversel(root,chkPre);
+
+    cout<<endl<<chkPre<<endl<<endl<<endl;
     
     return 0;
 }
 /*
+
+9
+0 1 3 4 2 5 7 8 6
+3 1 4 0 7 5 8 2 6
+
 9
 0 1 2
 1 3 4

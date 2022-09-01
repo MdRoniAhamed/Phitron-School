@@ -1,5 +1,5 @@
-//31-3 Construct a Binary Tree using Preorder and Inorder Traversal
-//Class 3 module 31.
+//31-4 Boundary Traversal of a Binary Tree
+//Class  module 31.
 #include <bits/stdc++.h>
 using namespace std;
 class treeNode
@@ -146,9 +146,12 @@ int Level_Order_Traversel(treeNode *root, string &chk, int n)
 
 int Search_In_Order(int In_Order[],int current, int start,int end)
 {
-    for(int i=start; i<end; i++)
+    for(int i=start; i<=end; i++)
     {
-        if(In_Order[i]==current) return i;
+        if(In_Order[i]==current)
+        {
+            return i;
+        }
     }
 
     return -1;
@@ -158,18 +161,25 @@ int Search_In_Order(int In_Order[],int current, int start,int end)
 //31-3 Construct a Binary Tree using Preorder and Inorder Traversal. 28 minutes. 
 treeNode * Build_Tree_Pre_In(int Pre_Order[],int In_Order[],int start,int end)
 {
-    static int ID = 0;
-    int current = Pre_Order[ID];
-    ID++;
-    treeNode* root = new treeNode(current);
-    if(start==end) return root;
+    static int id =0;
+    int current = Pre_Order[id];
+    id++;
+    treeNode * newNode = new treeNode(current);
+    if(start==end)
+    {
+        return newNode;
+    }
 
-    int position = Search_In_Order(In_Order,current,start,end);
-    root->leftChild = Build_Tree_Pre_In(Pre_Order,In_Order,start,position-1);
-    root->rightChild = Build_Tree_Pre_In(Pre_Order,In_Order,position+1,end);
+    int pos = Search_In_Order(In_Order,current,start,end);
 
-    return root;
+    newNode->leftChild = Build_Tree_Pre_In(Pre_Order,In_Order,start,pos-1);
+
+    newNode->rightChild = Build_Tree_Pre_In(Pre_Order,In_Order,pos+1,end);
+
+    return newNode;
+    
 }
+
 
 int main()
 {
