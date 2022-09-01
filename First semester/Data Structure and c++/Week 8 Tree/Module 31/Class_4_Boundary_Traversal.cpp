@@ -1,5 +1,5 @@
-//31-4 Boundary Traversal of a Binary Tree
-//Class  module 31.
+// 31-4 Boundary Traversal of a Binary Tree
+// Class  module 31.
 #include <bits/stdc++.h>
 using namespace std;
 class treeNode
@@ -15,13 +15,21 @@ public:
         rightChild = NULL;
     }
 };
+
 void printTree(treeNode *root, int level);
 void spacePrint(int level);
 void inOrder(treeNode *root, string &chk);
 void preOrder_Traversel(treeNode *root, string &chk);
 void postOrder(treeNode *root, string &chk);
 void Level_Order_Traversel(treeNode *root, string &chk);
-treeNode * Build_Tree_Pre_In(int Pre_Order[],int In_Order[],int star,int end);
+treeNode *Build_Tree_Pre_In(int Pre_Order[], int In_Order[], int star, int end);
+void Print_Leaves(treeNode *root);
+void Print_Left_Non_Leaves(treeNode *root);
+void Print_Right_Non_Leaves(treeNode *root);
+void boundary_Traversal(treeNode *root);
+int Level_Order_Traversel(treeNode *root, string &chk, int n);
+int Search_In_Order(int In_Order[], int current, int start, int end);
+treeNode *Build_Tree_Pre_In(int Pre_Order[], int In_Order[], int start, int end);
 
 void inOrder(treeNode *root, string &chk) // Left Root Right.
 {
@@ -48,6 +56,73 @@ void postOrder(treeNode *root, string &chk) // Left Right Root
     postOrder(root->leftChild, chk);
     postOrder(root->rightChild, chk);
     chk += to_string(root->data);
+}
+
+// 31-4 Boundary Traversal of a Binary Tree
+void Print_Leaves(treeNode *root)
+{
+    if (root == NULL)
+        return;
+    if (root->leftChild == NULL && root->rightChild == NULL)
+    {
+        cout << root->data << " ";
+        return;
+    }
+    Print_Leaves(root->leftChild);
+    Print_Leaves(root->rightChild);
+}
+
+// 31-4 Boundary Traversal of a Binary Tree
+void Print_Left_Non_Leaves(treeNode *root)
+{
+    if (root == NULL)
+        return;
+
+    if (root->leftChild != NULL)
+    {
+        cout << root->data << " ";
+        Print_Left_Non_Leaves(root->leftChild);
+    }
+    else if (root->rightChild != NULL)
+    {
+        cout << root->data << " ";
+        Print_Left_Non_Leaves(root->rightChild);
+    }
+}
+
+// Class 4 Boundary Traversal of a Binary Tree
+void Print_Right_Non_Leaves(treeNode *root)
+{
+    if (root == NULL)
+        return;
+
+    if (root->rightChild != NULL)
+    {
+        cout << root->data << " ";
+        Print_Left_Non_Leaves(root->rightChild);
+    }
+    else if (root->leftChild != NULL)
+    {
+        cout << root->data << " ";
+        Print_Left_Non_Leaves(root->leftChild);
+    }
+}
+
+// 31-4 Boundary Traversal of a Binary Tree
+void boundary_Traversal(treeNode *root)
+{
+    if (root == NULL)
+        return;
+    cout << root->data << " ";
+
+    // LB Non-Leaves.
+    Print_Left_Non_Leaves(root->leftChild);
+    // LB Leaves .
+    Print_Leaves(root->leftChild);
+    // RB Leaves.
+    Print_Leaves(root->rightChild);
+    // RB Non-Leaves.
+    Print_Right_Non_Leaves(root->rightChild);
 }
 
 void printTree(treeNode *root, int level)
@@ -92,7 +167,7 @@ void spacePrint(int level)
     }
 }
 
-// Module 31 => Class 2 Coded . 
+// Module 31 => Class 2 Code .
 int Level_Order_Traversel(treeNode *root, string &chk, int n)
 {
     if (root == NULL)
@@ -144,11 +219,11 @@ int Level_Order_Traversel(treeNode *root, string &chk, int n)
     return max;
 }
 
-int Search_In_Order(int In_Order[],int current, int start,int end)
+int Search_In_Order(int In_Order[], int current, int start, int end)
 {
-    for(int i=start; i<=end; i++)
+    for (int i = start; i <= end; i++)
     {
-        if(In_Order[i]==current)
+        if (In_Order[i] == current)
         {
             return i;
         }
@@ -157,27 +232,27 @@ int Search_In_Order(int In_Order[],int current, int start,int end)
     return -1;
 }
 
-//Class 3 Module 31. 35 minutes.
-//31-3 Construct a Binary Tree using Preorder and Inorder Traversal. 28 minutes. 
-treeNode * Build_Tree_Pre_In(int Pre_Order[],int In_Order[],int start,int end)
+// Class 3 Module 31. 35 minutes.
+// 31-3 Construct a Binary Tree using Preorder and Inorder Traversal. 28 minutes.
+treeNode *Build_Tree_Pre_In(int Pre_Order[], int In_Order[], int start, int end)
 {
-    static int id =0;
+    static int id = 0;
     int current = Pre_Order[id];
     id++;
-    treeNode * newNode = new treeNode(current);
-    if(start==end)
+    treeNode *newNode = new treeNode(current);
+    if (start == end)
     {
         return newNode;
     }
 
-    int pos = Search_In_Order(In_Order,current,start,end);
+    int pos = Search_In_Order(In_Order, current, start, end);
 
-    newNode->leftChild = Build_Tree_Pre_In(Pre_Order,In_Order,start,pos-1);
+    newNode->leftChild = Build_Tree_Pre_In(Pre_Order, In_Order, start, pos - 1);
 
-    newNode->rightChild = Build_Tree_Pre_In(Pre_Order,In_Order,pos+1,end);
+    newNode->rightChild = Build_Tree_Pre_In(Pre_Order, In_Order, pos + 1, end);
 
     return newNode;
-    
+
 }
 
 
@@ -185,23 +260,55 @@ int main()
 {
     int n;
     cin >> n;
-    int Pre_Order[n];
-    int In_Order[n];
-    for(int i=0; i<n; i++)
+    treeNode *allNodes[n];
+    vector<int> v;
+    v.push_back(1);
+
+    for (int i = 0; i < n; i++)
     {
-        cin>>Pre_Order[i];
-    }
-    for(int i=0; i<n; i++)
-    {
-        cin>>In_Order[i];
+        allNodes[i] = new treeNode(-1);
     }
 
-    treeNode * root = Build_Tree_Pre_In(Pre_Order,In_Order,0,n-1);
-    string chkPre = "";
-    preOrder_Traversel(root,chkPre);
+    for (int i = 0; i < n; i++)
+    {
+        int value, left, right;
+        cin >> value >> left >> right;
+        allNodes[i]->data = value;
+        if (left > n - 1 || right > n - 1)
+        {
+            cout << "Invalide index." << endl;
+            break;
+        }
+        if (left != -1)
+        {
+            allNodes[i]->leftChild = allNodes[left];
+        }
 
-    cout<<endl<<chkPre<<endl<<endl<<endl;
-    
+        if (right != -1)
+        {
+            allNodes[i]->rightChild = allNodes[right];
+        }
+    }
+
+    // printTree(allNodes[0], 0);
+
+    string inordertraversal = "";
+    string preordertraversal = "";
+    string postordertraversal = "";
+    // inOrder(allNodes[0], inordertraversal);
+    // preOrder_Traversel(allNodes[0], preordertraversal);
+    // postOrder(allNodes[0], postordertraversal);
+
+    // cout << "Inorder Traversal: " << inordertraversal << endl;
+    // cout << "Preorder Traversal: " << preordertraversal << endl;
+    // cout << "Postorder Traversal: " << postordertraversal << endl;
+
+    cout << endl
+         << endl;
+    boundary_Traversal(allNodes[0]);
+    cout << endl
+         << endl;
+
     return 0;
 }
 /*
