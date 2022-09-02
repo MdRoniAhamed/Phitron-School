@@ -53,8 +53,8 @@ void space(int level)
 int main()
 {
     bool found = false;
-    int n,k;
-    cin >> n>>k;
+    // int n,k;
+    // cin >> n>>k;
     int m;
     cin>>m;
     TreeNode* root = new TreeNode(m);
@@ -76,11 +76,11 @@ int main()
         presentRoot->left_child = n1;
         presentRoot->right_child = n2;
         if(n1 != NULL)  q.push(n1);
-        if(n2 != NULL) q.push(n2);
+        if(n2 != NULL)  q.push(n2);
 
     }
    
-    k--;
+    // k--;
     string s="";
     string p = "" ;
 
@@ -90,7 +90,7 @@ int main()
     // cout<<s[k]<<endl;
    Print_postorder(root,p);
    cout<<endl;
-   cout<<p[k]<<endl;
+//    cout<<p[k]<<endl;
 
     return 0;
 }
