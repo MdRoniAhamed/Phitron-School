@@ -32,7 +32,7 @@ public:
           return;
       }
       else{
-        top->Next = newNode;
+        top->next= newNode;
         newNode->prev = top;
         top = newNode;
       }

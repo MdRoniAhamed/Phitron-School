@@ -299,7 +299,8 @@ Node *ReverseNonRecusive(Node * &head)
 
 Node * ReverseRecusive(Node*&head)
 {
-    ///This is our base Call.
+    ///This is our base Call.  1 /2 / 3 / null/ 4 /5 
+    // 5 4 3 2 1
     if(head==NULL||head->Next==NULL)
     {
         if(head==NULL) cout<<"Linked list is Empty "<<endl;
