@@ -144,6 +144,47 @@ int Level_Order_Traversel(treeNode *root, string &chk, int n)
     return max;
 }
 
+void Level_Order_Traversel(treeNode *root, string &chk)
+{
+    if (root == NULL)
+    {
+        return ;
+    }
+    int level = 0;
+    queue<treeNode *> q;
+    q.push(root);
+    q.push(NULL);
+
+    int max = INT_MIN;
+
+    while (!q.empty())
+    {
+        treeNode *chkNode = q.front();
+        q.pop();
+        if (chkNode != NULL)
+        {
+            chk += (to_string(chkNode->data)+' ' );
+            if (chkNode->leftChild != NULL)
+            {
+                q.push(chkNode->leftChild);
+            }
+            if (chkNode->rightChild != NULL)
+            {
+                q.push(chkNode->rightChild);
+            }
+        }
+        else
+        {
+            if (!q.empty())
+            {
+                q.push(NULL);
+                level++;
+            }
+        }
+    }
+
+}
+
 int Search_In_Order(int In_Order[], int current, int start, int end)
 {
     for (int i = start; i <= end; i++)
@@ -153,6 +194,7 @@ int Search_In_Order(int In_Order[], int current, int start, int end)
             return i;
         }
     }
+    // cout<<" Roni " <<end<<endl;
 
     return -1;
 }
@@ -196,7 +238,7 @@ int main()
 
     treeNode *root = Build_Tree_Pre_In(Pre_Order, In_Order, 0, n - 1);
     string chkPre = "";
-    preOrder_Traversel(root, chkPre);
+    inOrder(root, chkPre);
 
     cout << endl
          << chkPre << endl
@@ -205,11 +247,22 @@ int main()
 
     return 0;
 }
+
 /*
 
-9
-0 1 3 4 2 5 7 8 6
-3 1 4 0 7 5 8 2 6
+7
+5 2 1 3 4 7 6
+1 2 3 4 5 6 7
+
+
+7
+1 2 3 4 5 6 7
+3 2 5 4 1 6 7
+
+
+10
+0 1 3 4 2 5 7 8 6 10
+3 1 4 0 7 5 8 2 6 10
 
 9
 0 1 2

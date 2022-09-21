@@ -52,32 +52,7 @@ void space(int level)
 
 int main()
 {
-    bool found = false;
-    // int n,k;
-    // cin >> n>>k;
-    int m;
-    cin>>m;
-    TreeNode* root = new TreeNode(m);
-    queue<TreeNode*> q;
-    q.push(root);
-    while(!q.empty())
-    {
-        TreeNode * presentRoot = q.front();
-        q.pop();
-        int a,x,y;
-        if(found) cin>>a;
-        cin>>x>>y;
-        found = true;
-        TreeNode * n1 = NULL;
-        TreeNode * n2 = NULL;
-        if(x != -1) n1 = new TreeNode(x);
-        if(y != -1) n2 = new TreeNode(y);
-
-        presentRoot->left_child = n1;
-        presentRoot->right_child = n2;
-        if(n1 != NULL)  q.push(n1);
-        if(n2 != NULL)  q.push(n2);
-
+    
     }
    
     // k--;

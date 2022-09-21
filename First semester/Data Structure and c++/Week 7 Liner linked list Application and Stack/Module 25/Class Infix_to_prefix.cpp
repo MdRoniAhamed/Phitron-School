@@ -21,14 +21,14 @@ string infixToPefix(string check)
         else if(check[i]==')') st.Push(check[i]);
         else if(check[i]=='(')
         {
-            while(!st.empty()&&st.top()!=')')
+            while(!st.empty()&&st.Top()!=')')
             {
                 result+=st.POP();
             }
             if(!st.empty()) st.POP();
         }
         else{
-            while(!st.empty() &&  precision_cal(st.top())>=  precision_cal(check[i]))
+            while(!st.empty() &&  precision_cal(st.Top())>=  precision_cal(check[i]))
             {
                 result+=st.POP();
             }
@@ -83,7 +83,7 @@ int prefix_Evaluation(string check)
         }
     }
 
-    return st.top();
+    return st.Top();
 }
 
 /*
