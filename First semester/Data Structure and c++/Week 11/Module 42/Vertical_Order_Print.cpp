@@ -254,6 +254,16 @@ treeNode *Build_Tree_Pre_In(int Pre_Order[], int In_Order[], int start, int end)
     return newNode;
 }
 
+void verticalOrder(treeNode * root, int D , map<int,vector<int>> &M)
+{
+    if(root==NULL) return;
+
+    M[D].push_back(root->data);
+
+    verticalOrder(root->leftChild,D-1,M);
+    verticalOrder(root->rightChild,D+1,M);
+}
+
 int main()
 {
     int n;
@@ -303,7 +313,21 @@ int main()
 
     cout << endl
          << endl;
-    boundary_Traversal(allNodes[0]);
+    // boundary_Traversal(allNodes[0]);
+    map<int, vector<int>> M;
+
+    verticalOrder(allNodes[0], 0, M);
+    // map<int,vector<int>> :: iterator it;
+
+    for(auto i: M)
+    {
+        cout<<i.first<<"  :  "; 
+        for(int j=0; j<(i.second).size(); j++)
+        {
+            cout<<(i.second)[j]<<" ";
+        }
+        cout<<endl;
+    }
     cout << endl
          << endl;
 

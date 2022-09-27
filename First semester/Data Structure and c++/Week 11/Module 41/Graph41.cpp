@@ -39,6 +39,7 @@ public:
         visited[source] = true;
         cout << source << " ";
         Q.push(source);
+        cout<<endl;
         while (!Q.empty())
         {
             int u = Q.front();
@@ -54,6 +55,7 @@ public:
                     Q.push(v);
                 }
             }
+            cout<<endl;
         }
     }
 
@@ -93,7 +95,8 @@ int main()
     g.BFS(source);
     cout << endl
          << endl;
-    g.DFS(source);
+         g.BFS(source);
+    // g.DFS(source);
 
     return 0;
 }

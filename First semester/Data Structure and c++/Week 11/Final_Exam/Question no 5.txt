@@ -1,0 +1,19 @@
+19
+Output
+34359738368
+
+Input
+20
+Output
+137438953472
+
+
+magic :
+Case 7
+Input 
+1
+18
+RBGRGBBRGBGRGRBGBR
+
+Output
+PYC
