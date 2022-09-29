@@ -9,23 +9,23 @@ int main()
     {
         int m;
         cin >> m;
-        queue<char> q;
+        queue<char> Qu;
         for (int j = 0; j < m; j++)
         {
             char c;
             cin >> c;
-            q.push(c);
+            Qu.push(c);
         }
-        int size = q.size() / 2;
+        int size = Qu.size() / 2;
         stack<char> st;
         for (int j = 0; j < size; j++)
         {
-            char c = q.front();
-            q.pop();
-            char d = q.front();
-            q.pop();
+            char c = Qu.front();
+            Qu.pop();
+            char d = Qu.front();
+            Qu.pop();
             if ((c == 'R' && d == 'B') || (c == 'B' && d == 'R'))
-            {   
+            {
                 if (st.empty())
                 {
                     st.push('P');
@@ -58,29 +58,27 @@ int main()
                     st.pop();
             }
         }
-        if (!q.empty())
+        if (!Qu.empty())
         {
 
             if (st.empty())
             {
-                st.push(q.front());
+                st.push(Qu.front());
             }
-            else if (st.top() != q.front())
-                st.push(q.front());
-            else if (st.top() == q.front())
+            else if (st.top() != Qu.front())
+                st.push(Qu.front());
+            else if (st.top() == Qu.front())
                 st.pop();
-            q.pop();
+            Qu.pop();
         }
-
-        string s="";
-        while(!st.empty())
+        string str = "";
+        while (!st.empty())
         {
-            s+=st.top();
+            str += st.top();
             st.pop();
-
         }
-        reverse(s.begin(),s.end());
-        cout<<s<<endl;
+        reverse(str.begin(), str.end());
+        cout << str << endl;
     }
 
     return 0;

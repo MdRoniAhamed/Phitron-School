@@ -16,7 +16,7 @@ class Node
 };
 
 int ans =0;
-void check_palindrome(vector<int> ve)
+void C_P(vector<int> ve)
 {
     bool check = true;
     // cout<<st<<endl;
@@ -39,18 +39,18 @@ void check_palindrome(vector<int> ve)
     }
 }
 
-void Preorder_Traversal(Node* root, vector<int> st)
+void p_r(Node* root, vector<int> st)
 {
     if(root==NULL) return;
     if(root->left==NULL&&root->right==NULL)
     {
         st.push_back(root->value);
-        check_palindrome(st);
+        C_P(st);
         return;
     }
     st.push_back(root->value);
-    Preorder_Traversal(root->left , st);
-    Preorder_Traversal(root->right , st);
+    p_r(root->left , st);
+    p_r(root->right , st);
 
 }
 
@@ -87,7 +87,7 @@ int main()
         current->right = ba;
     }
     vector<int> ve;
-    Preorder_Traversal(root,ve);
+    p_r(root,ve);
 
     cout<<ans<<endl;
     return 0;

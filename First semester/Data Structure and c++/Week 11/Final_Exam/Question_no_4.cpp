@@ -1,33 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef pair<int, int> Pair;
+typedef pair<int, int> PAIR;
 int main()
 {
    
-    priority_queue <Pair,vector<int>/*,greater<Pair>*/> pq;
+    priority_queue <PAIR,vector<int>> PQ;
      int m;
     cin >> m;
 
-   pq.push(m);
-    queue<int > q;
-    q.push(m);
+   PQ.push(m);
+    queue<int > Q;
+    Q.push(m);
 
-    while (!q.empty())
+    while (!Q.empty())
     {
-        int newNode = q.front();
-        q.pop();
+        int newNode = Q.front();
+        Q.pop();
         int n;
         cin >> n >> m;
         if (n != -1)
         {
-           q.push(n);
-           pq.push(n);
+           Q.push(n);
+           PQ.push(n);
         }
         if (m != -1)
         {
-            q.push(m);
-           pq.push(m);
+            Q.push(m);
+           PQ.push(m);
         }
       
     }
@@ -40,19 +40,18 @@ int main()
         switch (m)
         {
         case 1:
-            int a;
-            cin >> a;
-          pq.push(a);
+            int g;
+            cin >> g;
+          PQ.push(g);
             break;
         case 2:
-            cout <<pq.top()<< endl;
-            int b ;
-            pq.pop();
+            cout <<PQ.top()<< endl;
+            PQ.pop();
             break;
         default :
             break;
         }
     }
-    cout<<endl<<endl;
+    cout<<endl;
     return 0;
 }

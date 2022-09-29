@@ -4,39 +4,39 @@ vector<int> V[21];
 
 vector<int> C[21];
 
-void BFS(int source)
+void Best(int sourse)
 {
-    vector<bool> visited(21, false);
-    queue<int> q;
-    visited[source] = true;
-    int count = 0;
-    C[count].push_back(source);
-    q.push(source);
-    q.push(-1);
-    count++;
-    while (!q.empty())
+    vector<bool> visi(21, false);
+    queue<int> Qu;
+    visi[sourse] = true;
+    int cou = 0;
+    C[cou].push_back(sourse);
+    Qu.push(sourse);
+    Qu.push(-1);
+    cou++;
+    while (!Qu.empty())
     {
-        int u = q.front();
-        q.pop();
+        int u = Qu.front();
+        Qu.pop();
         if (u != -1)
         {
             for (auto element : V[u])
             {
                 int v = element;
-                if (visited[v] != true)
+                if (visi[v] != true)
                 {
-                    C[count].push_back(v);
-                    visited[v] = true;
-                    q.push(v);
+                    C[cou].push_back(v);
+                    visi[v] = true;
+                    Qu.push(v);
                 }
             }
         }
         else
         {
-            count++;
-            if (!q.empty())
+            cou++;
+            if (!Qu.empty())
             {
-                q.push(-1);
+                Qu.push(-1);
             }
         }
     }
@@ -55,19 +55,18 @@ int main()
         V[b].push_back(a);
     }
 
-    BFS(0);
-    int level;
-    cin >> level;
-
-    if (C[level].size() == 0)
+    Best(0);
+    int Lev;
+    cin >> Lev;
+    if (C[Lev].size() == 0)
     {
         cout << 0 << endl;
     }
     else
     {
-        for (int j = 0; j < C[level].size(); j++)
+        for (int j = 0; j < C[Lev].size(); j++)
         {
-            cout << C[level][j] << " ";
+            cout << C[Lev][j] << " ";
         }
     }
     cout << endl;
