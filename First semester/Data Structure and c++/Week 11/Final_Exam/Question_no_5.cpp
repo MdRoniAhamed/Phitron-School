@@ -14,6 +14,6 @@ int main()
         sum *= 2;
         n = sum*w;
     }
-    // cout<<sum<<endl;
+
     cout<<n<<endl;
 }
