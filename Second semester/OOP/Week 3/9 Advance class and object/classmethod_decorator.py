@@ -8,6 +8,7 @@ class Shopping:
         self.items = []
         self.total = 0
 
+    @classmethod
     def opening_hour(cls, day):
         return cls.mall
 

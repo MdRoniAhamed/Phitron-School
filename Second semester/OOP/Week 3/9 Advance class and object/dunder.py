@@ -7,6 +7,9 @@ class Person:
         self.age = age
         self.money = money
         self.height  = height
+
+    def __repr__(self) -> str:
+        return f'Name: {self.name} Age: {self.age} Money: {self.money} Height: {self.height}'
     def __eq__(self,other):
          return self.age == other.age
     def __call__(self):
@@ -22,3 +25,5 @@ dalim = Person('Dalim',16,790)
 print(alim+dalim)
 print('Compare two object',alim == dalim )
 print(len(alim))
+
+print(dalim)
