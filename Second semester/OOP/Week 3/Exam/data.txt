@@ -1,2 +1,0 @@
-{'student_id': 0, 'student_name': 'Roni', 'mark': '89'}
-{'student_id': 1, 'student_name': 'Emran', 'mark': '98'}
