@@ -1,0 +1,4 @@
+1. Question :
+1. Whats is the monutunas poperty?
+2. What is ternary search?
+3.bisection 
