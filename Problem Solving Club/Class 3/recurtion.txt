@@ -1,0 +1,13 @@
+ 1. The function has to call its if
+ 2. It has a finite ending (Base case)
+ 3. 
+
+ Recursion er advantage:
+
+ 1: code small hoy
+ 2: problem ka suto korajai
+ 3: kothin problem ka sohoj hoy 
+ 4: part part kora problem solve kora jai
+
+
+ ** what is number theory problem .
