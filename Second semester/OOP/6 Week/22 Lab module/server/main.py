@@ -16,17 +16,18 @@ while True:
     source_object = glob.glob(source_path)
 
     if len(source_object) > 0:
-        object_path = source_object[0]
-        shutil.copy(object_path,'.')
+        for i in range(len(source_object)):
+            object_path = source_object[i]
+            shutil.copy(object_path,'.')
 
-        object_name = object_path.split('\\')[-1].split('.')
-        prefix = object_name[0]
-        postfix2 = object_name[1]
+            object_name = object_path.split('\\')[-1].split('.')
+            prefix = object_name[0]
+            postfix2 = object_name[1]
 
-        for item in range(len(postfix)):
-            file_name = prefix + "_" +str(item) + '.' + postfix2
-            print(file_name)
-            shutil.copy(object_path,f"{destination_path}/{file_name}")
+            for item in range(len(postfix)):
+                file_name = prefix + "_" +str(item) + '.' + postfix2
+                print(file_name)
+                shutil.copy(object_path,f"{destination_path}/{file_name}")
 
         os.remove(object_path)
         os.remove(object_path.split('\\')[-1])
