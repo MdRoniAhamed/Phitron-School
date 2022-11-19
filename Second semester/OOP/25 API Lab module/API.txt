@@ -1,0 +1,7 @@
+1. What is an API?
+    API: Application Programming interface
+
+    DEfinition:
+     API is a software intermediary that allows two 	applications to talk to 
+     each other.
+   CRUD : (Create, Read, Update , Delete)

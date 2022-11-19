@@ -1,0 +1,8 @@
+1. What is CAP Theorem?
+    Answer: CAP full meaning (Consistency Availability Partition Tolerance)
+    The CAP Theorem is comprised of three components (hence its name)
+    as they relate to distributed date stores:
+    1.Consistency: All reads receive the most recent write or an error
+    2.Availability: All reads contain data, but it might not be the most recent
+    3.The system continues to operate despite network failures(ie; dropped partitions, slow network 
+    connections, or unavailable network connections between nodes.)
