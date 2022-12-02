@@ -57,8 +57,7 @@ new_list = list(map(lambda x: x.upper(), string_list))
 print(new_list) """
 
 # Example -> 6
-from functools import reduce
-from os import lstat
+from functools import reduce 
 lst = [1,2,3,4,5,6,7, 8, 9, 10]
 """ sum = 0
 for i in lst:
