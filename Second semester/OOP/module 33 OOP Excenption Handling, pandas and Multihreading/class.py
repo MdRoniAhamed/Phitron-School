@@ -23,5 +23,4 @@ class School:
 S = School("Roni")
 S2 = School("Roni")
 School.change_school_name()
-
-School.greet()
+S.greet()

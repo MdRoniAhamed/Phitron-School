@@ -2,14 +2,7 @@
 """ Author: MD Roni Ahamed """
 """ Gmail: mdroni0193101@gmail.com """
 
-# 33 minute video dekse
 
-
-
-
-from distutils.log import info
-from itertools import count
-from zoneinfo import available_timezones
 class User:
     def __init__(self, username, password) -> None:
         self.username = username
